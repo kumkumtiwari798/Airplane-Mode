@@ -1,0 +1,40 @@
+
+<!-- this is a sample default list template -->
+<!-- <h1>Flight List</h1>
+<h2>{% set airplane_doc = frappe.get_doc('Airplane', airplane) %}
+	{{ airplane_doc.airline }}<h2>
+<p >{{ doc.source_airport_code }}-{{doc.destination_airport_code}}</p>
+<p >{{ doc.date_of_departure }}||{{doc.time_of_departure }}||{{ doc.duration }}</p>
+<a href="{{ doc.route }}">View Flight</a -->
+
+<div class="container">
+<div class="div">
+	<p class="title">{% set airplane_doc = frappe.get_doc('Airplane', airplane) %}
+		{{ airplane_doc.airline }}<p>
+	<p>{{ doc.source_airport_code }} -> {{ doc.destination_airport_code }}</p>
+	<p>{{ frappe.utils.format_date(doc.date_of_departure, "d MMMM, YYYY") }} | {{ doc.time_of_departure }} |
+		{{frappe.utils.format_duration(doc.duration)}}
+	</p>
+	<a href="{{ doc.route }}" class="btn btn-primary">View Flight</a>
+</div>
+</div>
+<style>
+	.title{
+		font-weight: bold;
+		font-size: 20px;
+		color: rgb(27, 134, 223);
+	}
+	.container{
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.div{
+		box-sizing: border-box;
+		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+		padding: 10px 20px;
+	}
+	.link{
+		color: blue;
+	}
+</style>

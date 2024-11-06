@@ -1,0 +1,18 @@
+<!-- this is a sample default web page template -->
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h1>{{ airplane |e }}</h1>
+<h2>Flight Details</h2>
+
+<ul>
+    <li>Airplane: 
+        {% set airplane_doc = frappe.get_doc("Airplane", airplane) %}
+        {{ airplane_doc.airline}}
+    </li>
+    <li>{{ doc.source_airport_code }} -> {{ doc.destination_airport_code }}</li>
+    <li>{{ doc.date_of_departure }} | {{ doc.time_of_departure }}</li>
+    <li>Duration: {{ frappe.utils.format_duration(doc.duration) }}</li>
+</ul>
+<a class="btn btn-info" href="/book-flight-ticket-web-form">Book Now</a>
+{% endblock %}

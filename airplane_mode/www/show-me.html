@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Show Me Colors</title>
+    <style>
+        .rectangle {
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Show Me Colors</h2>
+    {% set color = frappe.form_dict.get('color','black') %}
+    <div class="rectangle",style="background-color: {{ color }};"></div>
+</body>
+</html> -->
+
+
+<!-- http://127.0.0.1:8001/show_me?color=red -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Me Colors</title>
+    <style>
+        .rectangle {
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Show Me Colors</h2>
+    <!-- Access the color from frappe.form_dict and default to 'black' if no color is provided -->
+    {% set color = frappe.form_dict.get('color', 'black') %}
+    <div class="rectangle" style="background-color: {{ color }};"></div>
+</body>
+</html>
+<!-- url?authuser=0&name="value'&age="18"  
+ url?isLoggedIn=true&name="puran'&age="18"  -->
